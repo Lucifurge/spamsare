@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Account Creator</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Facebook Account Creator</h1>
+        <form action="/create" method="POST">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="middleName">Middle Name (Optional):</label>
+            <input type="text" id="middleName" name="middleName">
+
+            <label for="lastName">Surname:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="totalAccounts">How Many Accounts to Create:</label>
+            <input type="number" id="totalAccounts" name="totalAccounts" min="1" required>
+
+            <button type="submit">Create Accounts</button>
+        </form>
+
+        <% if (typeof accounts !== "undefined" && accounts.length > 0) { %>
+        <h2>Generated Accounts:</h2>
+        <ul>
+            <% accounts.forEach(account => { %>
+            <li>Email: <%= account.email %>, Password: <%= account.password %></li>
+            <% }) %>
+        </ul>
+        <% } %>
+    </div>
+</body>
+</html>
